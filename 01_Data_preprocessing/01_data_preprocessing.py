@@ -16,7 +16,7 @@ from sklearn.preprocessing import StandardScaler
 
 # %%
 # Reading the data set
-dataset = pd.read_csv('Data.csv')
+dataset = pd.read_csv('01_Data_preprocessing/Data.csv')
 X = dataset.iloc[:, :-1].values
 y = dataset.iloc[:, -1].values
 
@@ -57,11 +57,3 @@ X_train, X_test, y_train, y_test = train_test_split(
 sc_X = StandardScaler()
 X_train = sc_X.fit_transform(X_train)
 X_test = sc_X.transform(X_test)
-
-# %%
-X_train
-
-# %%
-X_test
-
-# %%

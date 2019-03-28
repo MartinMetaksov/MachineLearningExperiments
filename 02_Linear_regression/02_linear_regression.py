@@ -17,7 +17,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
 
 # %%
-dataset = pd.read_csv('Salary_Data.csv')
+dataset = pd.read_csv('02_Linear_regression/Salary_Data.csv')
 X = dataset.iloc[:, :-1].values
 y = dataset.iloc[:, -1].values
 
@@ -29,7 +29,6 @@ X_train, X_test, y_train, y_test = train_test_split(
 # %%
 lr = LinearRegression()
 lr.fit(X_train, y_train)
-y_preds = lr.predict(X_test)
 
 # %%
 plt.scatter(X_train, y_train, color='red')
@@ -46,6 +45,3 @@ plt.title('Salary vs. Experience (test set)')
 plt.xlabel('Years of experience')
 plt.ylabel('Salary')
 plt.show()
-
-
-# %%
