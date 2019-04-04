@@ -17,7 +17,7 @@ from sklearn.preprocessing import LabelEncoder, OneHotEncoder  # handle categori
 import statsmodels.formula.api as sm
 
 # %%
-dataset = pd.read_csv('03_Multiple_linear_regression/50_Startups.csv')
+dataset = pd.read_csv('Regression/Multiple_linear_regression/50_Startups.csv')
 X = dataset.iloc[:, :-1].values
 y = dataset.iloc[:, -1].values
 

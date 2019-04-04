@@ -17,7 +17,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
 
 # %%
-dataset = pd.read_csv('02_Linear_regression/Salary_Data.csv')
+dataset = pd.read_csv('Regression/Linear_regression/Salary_Data.csv')
 X = dataset.iloc[:, :-1].values
 y = dataset.iloc[:, -1].values
 
