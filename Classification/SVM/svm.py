@@ -5,13 +5,13 @@ import matplotlib.pyplot as plt
 import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
-from sklearn.neighbors import KNeighborsClassifier
 from sklearn.metrics import confusion_matrix
 from matplotlib.colors import ListedColormap
+from sklearn.svm import SVC
 
 # %%
 dataset = pd.read_csv(
-    'Classification/K_nearest_neighbors/Social_Network_Ads.csv')
+    'Classification/SVM/Social_Network_Ads.csv')
 X = dataset.iloc[:, [2, 3]].values
 y = dataset.iloc[:, -1].values
 
@@ -25,15 +25,17 @@ X_train = sc_X.fit_transform(X_train)
 X_test = sc_X.transform(X_test)
 
 # %%
-classifier = KNeighborsClassifier(n_neighbors=5, metric='minkowski', p=2)
+classifier = SVC(kernel='linear', random_state=0)
 classifier.fit(X_train, y_train)
 
 # %%
 y_pred = classifier.predict(X_test)
+y_pred
 
 # %%
 cm = confusion_matrix(y_test, y_pred)
 cm
+
 
 # %%
 X_set, y_set = X_train, y_train
@@ -69,6 +71,5 @@ plt.xlabel('Age')
 plt.ylabel('Estimated Salary')
 plt.legend()
 plt.show()
-
 
 # %%
