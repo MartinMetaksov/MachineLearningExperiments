@@ -11,7 +11,7 @@ from sklearn.svm import SVC
 
 # %%
 dataset = pd.read_csv(
-    'Classification/SVM/Social_Network_Ads.csv')
+    'Classification/Kernel_SVM/Social_Network_Ads.csv')
 X = dataset.iloc[:, [2, 3]].values
 y = dataset.iloc[:, -1].values
 
@@ -25,7 +25,7 @@ X_train = sc_X.fit_transform(X_train)
 X_test = sc_X.transform(X_test)
 
 # %%
-classifier = SVC(kernel='linear', random_state=0)
+classifier = SVC(kernel='rbf', random_state=0)
 classifier.fit(X_train, y_train)
 
 # %%
@@ -48,7 +48,7 @@ plt.ylim(X2.min(), X2.max())
 for i, j in enumerate(np.unique(y_set)):
     plt.scatter(X_set[y_set == j, 0], X_set[y_set == j, 1],
                 c=ListedColormap(('red', 'green'))(i), label=j)
-plt.title('SVM (Training set)')
+plt.title('Kernel SVM (Training set)')
 plt.xlabel('Age')
 plt.ylabel('Estimated Salary')
 plt.legend()
@@ -66,7 +66,7 @@ plt.ylim(X2.min(), X2.max())
 for i, j in enumerate(np.unique(y_set)):
     plt.scatter(X_set[y_set == j, 0], X_set[y_set == j, 1],
                 c=ListedColormap(('red', 'green'))(i), label=j)
-plt.title('SVM (Test set)')
+plt.title('Kernel SVM (Test set)')
 plt.xlabel('Age')
 plt.ylabel('Estimated Salary')
 plt.legend()

@@ -7,11 +7,11 @@ from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 from sklearn.metrics import confusion_matrix
 from matplotlib.colors import ListedColormap
-from sklearn.svm import SVC
+from sklearn.ensemble import RandomForestClassifier
 
 # %%
 dataset = pd.read_csv(
-    'Classification/SVM/Social_Network_Ads.csv')
+    'Classification/Random_forest/Social_Network_Ads.csv')
 X = dataset.iloc[:, [2, 3]].values
 y = dataset.iloc[:, -1].values
 
@@ -25,7 +25,8 @@ X_train = sc_X.fit_transform(X_train)
 X_test = sc_X.transform(X_test)
 
 # %%
-classifier = SVC(kernel='linear', random_state=0)
+classifier = RandomForestClassifier(
+    n_estimators=10, criterion='entropy', random_state=0)
 classifier.fit(X_train, y_train)
 
 # %%
@@ -48,7 +49,7 @@ plt.ylim(X2.min(), X2.max())
 for i, j in enumerate(np.unique(y_set)):
     plt.scatter(X_set[y_set == j, 0], X_set[y_set == j, 1],
                 c=ListedColormap(('red', 'green'))(i), label=j)
-plt.title('SVM (Training set)')
+plt.title('Random forest (Training set)')
 plt.xlabel('Age')
 plt.ylabel('Estimated Salary')
 plt.legend()
@@ -66,7 +67,7 @@ plt.ylim(X2.min(), X2.max())
 for i, j in enumerate(np.unique(y_set)):
     plt.scatter(X_set[y_set == j, 0], X_set[y_set == j, 1],
                 c=ListedColormap(('red', 'green'))(i), label=j)
-plt.title('SVM (Test set)')
+plt.title('Random forest (Test set)')
 plt.xlabel('Age')
 plt.ylabel('Estimated Salary')
 plt.legend()
