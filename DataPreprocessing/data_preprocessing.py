@@ -16,7 +16,7 @@ from sklearn.preprocessing import StandardScaler
 
 # %%
 # Reading the data set
-dataset = pd.read_csv('01_Data_preprocessing/Data.csv')
+dataset = pd.read_csv('DataPreprocessing/Data.csv')
 X = dataset.iloc[:, :-1].values
 y = dataset.iloc[:, -1].values
 
