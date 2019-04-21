@@ -24,6 +24,11 @@ classifier.add(Convolution2D(
 classifier.add(MaxPooling2D(pool_size=(2, 2)))
 
 # %%
+# Convolution
+classifier.add(Convolution2D(32, 3, 3, activation='relu'))
+classifier.add(MaxPooling2D(pool_size=(2, 2)))
+
+# %%
 # Flattening
 classifier.add(Flatten())
 
