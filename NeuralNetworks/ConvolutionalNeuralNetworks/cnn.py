@@ -71,7 +71,7 @@ classifier.fit_generator(
     steps_per_epoch=250,
     epochs=25,
     validation_data=test_set,
-    validation_steps=2000)
+    validation_steps=63)
 
 
 # %%
